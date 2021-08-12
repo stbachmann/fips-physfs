@@ -1,0 +1,10 @@
+#
+# fips-physfs
+#
+---
+
+exports:
+  header-dirs: [ "physfs/." ]
+modules:
+  physfs: .
+
