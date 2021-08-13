@@ -6,17 +6,22 @@ if (NOT FIPS_IMPORT)
     fips_setup()
 endif()
 
-# Current SDL version 2.0.9
 fips_begin_module(physfs)
     fips_files_ex(physfs/src/ *.c)
     
     if(FIPS_MACOS)
         fips_files(physfs/src/platform_apple.m)
     endif()
-
 fips_end_module()
-target_include_directories(physfs PUBLIC physfs/include)
+
+target_include_directories(physfs PUBLIC physfs/src)
 
 if (NOT FIPS_IMPORT)
+    fips_begin_app(physfstest cmdline)
+        fips_vs_warning_level(3)
+        fips_files(test.cpp)
+        fips_deps(physfs)
+    fips_end_app()
+
     fips_finish()
 endif()

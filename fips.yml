@@ -4,7 +4,7 @@
 ---
 
 exports:
-  header-dirs: [ "physfs/." ]
-modules:
-  physfs: .
+  header-dirs: [ "physfs/src/." ]
+  modules:
+    physfs: .
 
